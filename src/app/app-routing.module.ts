@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: HomeComponent,
-  // },
-  // {
-  //   path: 'account',
-  //   component: AccountComponent,
-  //   canActivate: [CanActiveGuard],
-  // },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./core/components/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./components/admin/admin.module').then((m) => m.AdminModule),
+  },
 ];
 
 @NgModule({
